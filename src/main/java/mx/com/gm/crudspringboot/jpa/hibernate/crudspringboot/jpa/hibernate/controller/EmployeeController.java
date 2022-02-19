@@ -24,16 +24,17 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee")
+    //@PostMapping(path = "/employee/role{id}")
     public Employee createEmployee(@RequestBody Employee employee){
         return this.employeeService.crearEmployee(employee);
     }
 
-    @GetMapping("/tutorials/{id}")
+    @GetMapping("/employees/{id}")
     public Optional<Employee> obtenerPorId(@PathVariable("id") long id){
         return this.employeeService.obtenerPorId(id);
     }
 
-    @DeleteMapping("/tutorials/{id}")
+    @DeleteMapping("/employees/{id}")
     public String eliminarPorId(@PathVariable("id") long id){
         boolean ok = this.employeeService.eliminarEmployee(id);
         if(ok){

@@ -44,13 +44,13 @@ public class Employee {
         this.role = role;
     }
 
-    public Employee(String firstName, String lastName, String employeeId, Role role, List<Project> projects){
+    /*public Employee(String firstName, String lastName, String employeeId, Role role, List<Project> projects){
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeId = employeeId;
         this.role = null;
         this.projects = projects;
-    }
+    }*/
 
     public Long getId() {
         return id;
