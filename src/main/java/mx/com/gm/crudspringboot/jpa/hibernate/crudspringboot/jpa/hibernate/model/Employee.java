@@ -20,6 +20,7 @@ public class Employee {
     @Column(length = 25,nullable = false)
     private String lastName;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(length = 10,nullable = false,unique = true)
     private String employeeId;
 
@@ -41,6 +42,14 @@ public class Employee {
         this.lastName = lastName;
         this.employeeId = employeeId;
         this.role = role;
+    }
+
+    public Employee(String firstName, String lastName, String employeeId, Role role, List<Project> projects){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employeeId = employeeId;
+        this.role = null;
+        this.projects = projects;
     }
 
     public Long getId() {

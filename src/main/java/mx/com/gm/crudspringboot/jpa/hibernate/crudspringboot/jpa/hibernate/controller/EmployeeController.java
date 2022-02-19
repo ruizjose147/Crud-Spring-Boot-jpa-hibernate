@@ -23,17 +23,17 @@ public class EmployeeController {
         return employeeService.obtenerEmpleados();
     }
 
-    @PostMapping()
+    @PostMapping("/employee")
     public Employee createEmployee(@RequestBody Employee employee){
         return this.employeeService.crearEmployee(employee);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping("/tutorials/{id}")
     public Optional<Employee> obtenerPorId(@PathVariable("id") long id){
         return this.employeeService.obtenerPorId(id);
     }
 
-    @DeleteMapping( path = "/{id}")
+    @DeleteMapping("/tutorials/{id}")
     public String eliminarPorId(@PathVariable("id") long id){
         boolean ok = this.employeeService.eliminarEmployee(id);
         if(ok){
@@ -42,14 +42,4 @@ public class EmployeeController {
             return "No se pudo eliminar el usuario con id" + id;
         }
     }
-    /*@PostMapping("/employee")
-    public ResponseEntity<Employee> createEmployee(Employee employee){
-        try {
-            Employee employee_ = this.employeeService.crearEmpleado(employee);
-            return new ResponseEntity<> (employee_, HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);
-        }
-    }*/
-
 }
